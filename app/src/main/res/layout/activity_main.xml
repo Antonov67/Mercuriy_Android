@@ -8,6 +8,12 @@
     tools:context=".MainActivity"
     android:padding="30dp">
 
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Приложение для тестирования работы счетчика" />
+
     <ImageView
         android:id="@+id/imageMercuriy"
         android:layout_width="62dp"
@@ -53,7 +59,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/typeText"
@@ -122,7 +129,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/textNumber"
