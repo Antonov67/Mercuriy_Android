@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView resultText     = null;
     private TextView resultTitle     = null;
     private Connection  mConnect  = null;
+
+    private Spinner spinnerDev, spinnerUser;
+
 
     private  String     HOST      = "212.3.141.67";
     private  int        PORT      = 1002;
@@ -33,6 +39,30 @@ public class MainActivity extends AppCompatActivity {
         mBtnClose = findViewById(R.id.closeButton);
         resultText = findViewById(R.id.resultText);
         resultTitle = findViewById(R.id.resultTitle);
+
+        spinnerDev = findViewById(R.id.spinnerDevices);
+
+        // Настраиваем адаптер для спиннера
+        ArrayAdapter<?> adapter =
+                ArrayAdapter.createFromResource(this, R.array.devices,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+       // Вызываем адаптер для спиннера
+        spinnerDev.setAdapter(adapter);
+
+        spinnerUser = findViewById(R.id.spinnerUser);
+
+        // Настраиваем адаптер для спиннера
+        ArrayAdapter<?> adapter2 =
+                ArrayAdapter.createFromResource(this, R.array.users,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Вызываем адаптер для спиннера
+        spinnerUser.setAdapter(adapter2);
+
+
 
         mBtnSend .setEnabled(false);
         mBtnClose.setEnabled(false);

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Mercuriy_Android</string>
+
+    <string-array name="devices">
+        <item>Меркурий-230</item>
+        <item>Меркурий-231</item>
+        <item>Меркурий-234</item>
+        <item>Меркурий-236</item>
+    </string-array>
+    <string-array name="users">
+        <item>Admin</item>
+        <item>User</item>
+    </string-array>
 </resources>
