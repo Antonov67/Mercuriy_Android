@@ -22,17 +22,20 @@ public class MainActivity extends AppCompatActivity {
     private Connection  mConnect  = null;
 
     private Spinner spinnerDev, spinnerUser;
+    EditText hostField, portField;
 
 
-    private  String     HOST      = "212.3.141.67";
-    private  int        PORT      = 1002;
+    private String host = "";
+    private int port = 0;
 
-    private  String     LOG_TAG   = "SOCKET";
+    private String LOG_TAG = "SOCKET";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().hide();
 
         mBtnOpen  = findViewById(R.id.openButton);
         mBtnSend  = findViewById(R.id.sendButton);
@@ -41,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         resultTitle = findViewById(R.id.resultTitle);
 
         spinnerDev = findViewById(R.id.spinnerDevices);
+
+        hostField = findViewById(R.id.fieldIP);
+        portField = findViewById(R.id.fieldPort);
 
         // Настраиваем адаптер для спиннера
         ArrayAdapter<?> adapter =
@@ -70,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
         mBtnOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                host = hostField.getText().toString();
+                port = Integer.parseInt(portField.getText().toString());
+                Log.d("SOCKET", host + " " + port);
                 onOpenClick();
             }
         });
@@ -77,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onSendClick();
+               onSendClick();
             }
         });
 
@@ -92,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
     private void onOpenClick()
     {
         // Создание подключения
-        mConnect = new Connection(HOST, PORT);
+        Log.d("SOCKET", host + " " + port);
+        mConnect = new Connection(host, port);
         // Открытие сокета в отдельном потоке
         new Thread(new Runnable() {
             @Override

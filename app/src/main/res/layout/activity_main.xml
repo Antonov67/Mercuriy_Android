@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imageMercuriy"
-        android:layout_width="97dp"
-        android:layout_height="84dp"
+        android:layout_width="62dp"
+        android:layout_height="56dp"
         android:layout_gravity="center"
         android:layout_marginBottom="5px"
         app:srcCompat="@drawable/mercuriy230" />
