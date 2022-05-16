@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Connection  mConnect  = null;
 
     private Spinner spinnerDev, spinnerUser;
-    EditText hostField, portField;
+    EditText hostField, portField, pswrdField;
 
 
     private String host = "";
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         hostField = findViewById(R.id.fieldIP);
         portField = findViewById(R.id.fieldPort);
+        pswrdField = findViewById(R.id.fieldPswrd);
 
         // Настраиваем адаптер для спиннера
         ArrayAdapter<?> adapter =
